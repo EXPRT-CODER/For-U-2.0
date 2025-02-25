@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanisha ❤️ | My Eternal Love</title>
+    <link rel="stylesheet" href="test.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">   
+</head>
+<body class="theme-1">
+    <button class="theme-toggle" onclick="changeTheme()">Change Theme 🌈</button>
+
+    <header class="header">
+        <h1>My Eternal Love for <span class="heart">Tanisha</span></h1>
+        <p class="message-box">"In your eyes, I found my home. In your heart, I found my forever."</p>
+    </header>
+
+    <section class="content-section">
+        <h2 class="heart">Our Journey 💌</h2>
+        <div class="memory-timeline">
+            <div class="memory-item">
+                <h3>First Meeting</h3>
+                <p>The moment our eyes met, my whole world is You..</p>
+            </div>
+            <div class="memory-item">
+                <h3>First Date</h3>
+                <p>I want a Nervous laughter and endless conversations under the stars...</p>
+            </div>
+            <div class="memory-item">
+                <h3>Our First Adventure</h3>
+                <p>We will Explor new worlds hand in hand...</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2 class="heart">Why I Love You</h2>
+        <div class="reasons-grid">
+            <div class="reason-card">
+                <i class="fas fa-heart heart" style="font-size: 2.5rem;"></i>
+                <h3>Your Kind Soul</h3>
+                <p>The way you care inspires me daily</p>
+            </div>
+            <div class="reason-card">
+                <i class="fas fa-laugh-beam heart" style="font-size: 2.5rem;"></i>
+                <h3>Your Magical Smile</h3>
+                <p>It brightens even my darkest days</p>
+            </div>
+            <div class="reason-card">
+                <i class="fas fa-hand-holding-heart heart" style="font-size: 2.5rem;"></i>
+                <h3>Your Support</h3>
+                <p>Will you be my biggest cheerleader</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <button class="proposal-button" onclick="revealProposal()">Unlock My Heart ❤️</button>
+        <div id="proposalMessage" class="hidden-message">
+            <p>Tanisha, will you make every moment magical<br>by being mine forever? 💖</p>
+            <div class="heart" style="text-align:center;font-size: 3rem; margin-top: 2rem;">❤️</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Forever Yours, <span class="heart">Vishal..</span></p>
+    </footer>
+
+    <script>
+        let currentTheme = 1;
+        const totalThemes = 4;
+
+        function changeTheme() {
+            currentTheme = currentTheme % totalThemes + 1;
+            document.body.className = `theme-${currentTheme}`;
+            localStorage.setItem('selectedTheme', currentTheme);
+        }
+
+        function revealProposal() {
+            const proposal = document.getElementById('proposalMessage');
+            proposal.style.display = 'block';
+            document.querySelector('.proposal-button').style.display = 'none';
+            createFloatingElements();
+        }
+
+        function createFloatingElements() {
+            const container = document.createElement('div');
+            container.className = 'floating-elements';
+            
+            for(let i = 0; i < 30; i++) {
+                const element = document.createElement('span');
+                element.innerHTML = ['❤️', '🌸', '✨', '🌹'][Math.floor(Math.random() * 4)];
+                element.style.left = Math.random() * 100 + 'vw';
+                element.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(element);
+            }
+            
+            document.body.appendChild(container);
+        }
+
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('selectedTheme');
+            if(savedTheme) {
+                currentTheme = parseInt(savedTheme);
+                document.body.className = `theme-${currentTheme}`;
+            }
+        }
+    </script>
+</body>
+</html>

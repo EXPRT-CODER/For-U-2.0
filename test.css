@@ -1,0 +1,192 @@
+:root {
+    --theme-1-primary: #ff69b4;    /* Romantic Pink */
+    --theme-1-secondary: #ffe6f2;  /* Soft Pink */
+    --theme-1-primary-rgb: 255, 105, 180; /* RGB for Romantic Pink */
+    
+    --theme-2-primary: #6DC7D1;     /* Soft Teal */
+    --theme-2-secondary: #E2F3F4;   /* Pale Blue */
+    --theme-2-primary-rgb: 109, 199, 209; /* RGB for Soft Teal */
+    
+    --theme-3-primary: #F991CC;    /* Bright Pink */
+    --theme-3-secondary: #FFDAFC;   /* Light Pink */
+    --theme-3-primary-rgb: 249, 145, 204; /* RGB for Bright Pink */
+    
+    --theme-4-primary: #000000;     /* Black */
+    --theme-4-secondary: #FFFFFF;  /* White */
+    --theme-4-primary-rgb: 0, 0, 0; /* RGB for Black */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.4s ease;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--secondary);
+    color: var(--primary);
+}
+
+/* Theme Styles */
+body[class^="theme-"] {
+    background: linear-gradient(rgba(var(--primary-rgb), 0.1), var(--secondary));
+}
+
+body.theme-1 {
+    --primary: var(--theme-1-primary);
+    --secondary: var(--theme-1-secondary);
+    --primary-rgb: var(--theme-1-primary-rgb);
+}
+
+body.theme-2 {
+    --primary: var(--theme-2-primary);
+    --secondary: var(--theme-2-secondary);
+    --primary-rgb: var(--theme-2-primary-rgb);
+}
+
+body.theme-3 {
+    --primary: var(--theme-3-primary);
+    --secondary: var(--theme-3-secondary);
+    --primary-rgb: var(--theme-3-primary-rgb);
+}
+
+body.theme-4 {
+    --primary: var(--theme-4-primary);
+    --secondary: var(--theme-4-secondary);
+    --primary-rgb: var(--theme-4-primary-rgb);
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 2px solid var(--primary);
+    background: var(--secondary);
+    color: var(--primary);
+    cursor: pointer;
+    font-weight: 500;
+    z-index: 1000;
+}
+
+.header {
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.heart {
+    animation: heartbeat 1.5s infinite;
+    color: var(--primary);
+}
+
+.content-section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.memory-timeline {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.memory-item {
+    background: rgba(var(--primary-rgb), 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 2px solid var(--primary);
+    position: relative;
+    backdrop-filter: blur(5px);
+}
+
+.reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.reason-card {
+    padding: 2rem;
+    border-radius: 15px;
+    border: 2px solid var(--primary);
+    transition: transform 0.3s ease;
+    background: rgba(var(--primary-rgb), 0.05);
+}
+
+.reason-card:hover {
+    transform: translateY(-10px);
+}
+
+.proposal-button {
+    background: var(--primary);
+    color: var(--secondary);
+    padding: 1rem 2.5rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border: none;
+    margin-top: 2rem;
+}
+
+.hidden-message {
+    display: none;
+    margin-top: 3rem;
+    font-size: 1.5rem;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.floating-elements span {
+    position: fixed;
+    font-size: 1.5rem;
+    animation: float 6s linear infinite;
+    opacity: 0;
+    z-index: -1;
+    /* Randomize positions */
+    left: calc(var(--random-x) * 100%);
+    top: calc(var(--random-y) * 100%);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-20vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+footer {
+    padding: 3rem;
+    text-align: center;
+    width: 100%;
+    background: rgba(var(--primary-rgb), 0.1);
+    margin-top: auto;
+}
