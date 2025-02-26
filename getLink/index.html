@@ -24,18 +24,20 @@
 <body>
   <input id="name" type="text" placeholder="Enter Name"> 
   <button onclick="getLink()">Get Link</button>
-  <h4 id="display"></h4>
+  <a href="#" id="display"></a>
   <script>
   function getLink(){
     const name = document.getElementById("name").value;
     if(name == ''){
       return;
     }
+    const finalLink= `https://exprt-coder.github.io/For-U-2.0/?name=${name}`;
     
-    document.getElementById('display').innerText =
-    `https://exprt-coder.github.io/For-U-2.0/?name=${name}`;
-     
-    const text = document.getElementById('display').innerText;
+    document.getElementById('display').innerText = finalLink;
+
+    document.getElementById('display').href = finalLink;
+    
+    const text = finalLink;
     navigator.clipboard.writeText(text);
   }
   </script>
