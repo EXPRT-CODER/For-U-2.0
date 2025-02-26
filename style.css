@@ -83,7 +83,9 @@ body.theme-4 {
     position: relative;
     overflow: hidden;
 }
-
+i{
+    color: var(--primary);
+}
 h1 {
     font-family: 'Dancing Script', cursive;
     font-size: 4.5rem;
