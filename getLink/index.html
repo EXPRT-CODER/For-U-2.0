@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Link</title>
+  <style>
+     body{
+       width: 100vw;
+       font-family: Arial, sans-serif;
+       margin: 0;
+       padding: 20px;
+     }
+     input, button {
+       margin: 10px 0;
+       padding: 10px;
+       font-size: 16px;
+     }
+     h4 {
+       font-size: 18px;
+     }
+  </style>
+</head>
+<body>
+  <input id="name" type="text" placeholder="Enter Name"> 
+  <button onclick="getLink()">Get Link</button>
+  <h4 id="display"></h4>
+  <script>
+  function getLink(){
+    const name = document.getElementById("name").value;
+    if(name == ''){
+      return;
+    }
+    
+    document.getElementById('display').innerText =
+    `https://exprt-coder.github.io/For-U-2.0/?name=${name}`;
+     
+    const text = document.getElementById('display').innerText;
+    navigator.clipboard.writeText(text);
+  }
+  </script>
+</body>
+</html>
