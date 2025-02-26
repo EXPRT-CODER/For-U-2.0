@@ -9,7 +9,7 @@
 
     // If the 'name' parameter exists, update the content of the element
     if (name) {
-        document.getElementById('change-able').textContent = name;
+        document.getElementByClass('change-name').textContent = name;
     }
         let currentTheme = 1;
         const totalThemes = 4;
