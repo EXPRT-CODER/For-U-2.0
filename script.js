@@ -11,6 +11,9 @@
     if (name) {
         document.getElementById('change-name1').textContent = name;
         document.getElementById('change-name2').textContent = name;
+        if(name=='TANIYA'){
+        document.getElementById('credit-p').textContent='Akku..';
+        }
     }
         let currentTheme = 1;
         const totalThemes = 4;
