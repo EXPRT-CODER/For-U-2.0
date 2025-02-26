@@ -25,6 +25,7 @@
   <input id="name" type="text" placeholder="Enter Name"> 
   <button onclick="getLink()">Get Link</button>
   <a href="#" id="display"></a>
+  <button onclick="copy()">copy</button>
   <script>
   function getLink(){
     const name = document.getElementById("name").value;
@@ -40,6 +41,10 @@
     const text = finalLink;
     navigator.clipboard.writeText(text);
   }
+  function copy(){
+    const text = document.getElementById('display').innerText;
+    navigator.clipboard.writeText(text);
+  } 
   </script>
 </body>
 </html>
